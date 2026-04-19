@@ -1,15 +1,15 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-// Clave donde se guardan las tareas
+
 const KEY = "TASKS";
 
-// Tipo de tarea (puedes importarlo si tienes types.ts)
+
 export interface Task {
   id: number;
   title: string;
   status: "Pendiente" | "Completada";
 }
 
-// Guardar tareas
+
 export const saveTasks = async (tasks: Task[]): Promise<void> => {
   try {
     const json = JSON.stringify(tasks);
@@ -19,7 +19,7 @@ export const saveTasks = async (tasks: Task[]): Promise<void> => {
   }
 };
 
-// Obtener tareas
+
 export const getTasks = async (): Promise<Task[]> => {
   try {
     const data = await AsyncStorage.getItem(KEY);
@@ -30,7 +30,7 @@ export const getTasks = async (): Promise<Task[]> => {
   }
 };
 
-// (Opcional) limpiar todas las tareas
+
 export const clearTasks = async (): Promise<void> => {
   try {
     await AsyncStorage.removeItem(KEY);

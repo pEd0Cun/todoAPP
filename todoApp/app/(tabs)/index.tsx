@@ -26,11 +26,12 @@ export default function Home() {
   };
 
   return (
+    
     <View style={{ padding: 20 }}>
       <Text style={{ fontSize: 20, fontWeight: "bold" }}>
         TODO LIST
       </Text>
-
+        
       <FlatList
         data={tasks}
         keyExtractor={(item) => item.id.toString()}

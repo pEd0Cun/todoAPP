@@ -40,13 +40,51 @@ export default function Detail() {
     );
   }
 
-  return (
-    <View>
-      <Text>{task.title}</Text>
-      <Text>{status}</Text>
+  
+ return (
+  <View
+    style={{
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
+      padding: 20,
+    }}
+  >
+    <Text style={{ fontSize: 22, fontWeight: "bold", marginBottom: 10 }}>
+      {task.title}
+    </Text>
 
-      <Button title="Cambiar estado" onPress={changeStatus} />
-      <Button title="Volver" onPress={() => router.back()} />
+    <Text style={{ fontSize: 18, marginBottom: 20 }}>
+      Estado: {status}
+    </Text>
+
+    <View
+      style={{
+        backgroundColor: "#4CAF50",
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        borderRadius: 10,
+        marginBottom: 10,
+      }}
+    >
+      <Text style={{ color: "white" }} onPress={changeStatus}>
+        Cambiar estado
+      </Text>
     </View>
-  );
+
+
+    <View
+      style={{
+        backgroundColor: "#2196F3",
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        borderRadius: 10,
+      }}
+    >
+      <Text style={{ color: "white" }} onPress={() => router.back()}>
+        Volver
+      </Text>
+    </View>
+  </View>
+);
 }

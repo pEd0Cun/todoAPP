@@ -6,7 +6,8 @@ import { getTasks, saveTasks, Task } from "../storage/taskStorage";
 export default function Add() {
   const [title, setTitle] = useState("");
   const [taskId, setTaskId] = useState<number>(1);
-
+  const [status, setStatus] = useState<"Pendiente"  | "Completada">("Pendiente");
+  
   useFocusEffect(
      useCallback(()=>{
         const loadId = async () => {
@@ -30,7 +31,7 @@ export default function Add() {
     const newTask: Task = {
       id: taskId, 
       title: title,
-      status: "Pendiente",
+      status: status,
     };
 
     const updatedTasks = [...tasks, newTask];
@@ -53,7 +54,46 @@ export default function Add() {
         onChangeText={setTitle}
         style={{ borderWidth: 1, marginBottom: 10, padding: 8 }}
       />
+      <Text style={{ marginTop: 10 }}>Estado:</Text>
+<View style={{ flexDirection: "row", marginBottom: 20 }}>
+  
+ 
+  <View
+    style={{
+      backgroundColor: status === "Pendiente" ? "#f39c12" : "#ccc",
+      paddingVertical: 10,
+      paddingHorizontal: 20,
+      borderRadius: 10,
+    }}
+  >
+    <Text
+      style={{ color: "white" }}
+      onPress={() => setStatus("Pendiente")}
+    >
+      Pendiente
+    </Text>
+  </View>
 
+  <View style={{ width: 10 }} />
+
+ 
+  <View
+    style={{
+      backgroundColor: status === "Completada" ? "#2ecc71" : "#ccc",
+      paddingVertical: 10,
+      paddingHorizontal: 20,
+      borderRadius: 10,
+    }}
+  >
+    <Text
+      style={{ color: "white" }}
+      onPress={() => setStatus("Completada")}
+    >
+      Completada
+    </Text>
+  </View>
+
+</View>
       <Button title="Guardar" onPress={save} />
     </View>
   );
