@@ -1,91 +1,71 @@
-# todoAPP
-Desarrollar una aplicación móvil en React Native con Expo, tipo TODO LIST, donde el usuario pueda administrar tareas pendientes.
-# Aplicación To-Do List
+# Welcome to your Expo app 👋
 
-## 2. Explicación de pantallas
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-### Pantalla Home (Index)
-- Muestra la lista de tareas almacenadas.
-- Permite navegar al detalle de cada tarea.
-- Incluye un botón para agregar nuevas tareas.
-- Permite eliminar tareas existentes.
+## Get started
 
----
+1. Install dependencies
 
-### Pantalla Add
-- Permite crear una nueva tarea.
-- El usuario ingresa el título.
-- Puede seleccionar el estado (Pendiente o Completada).
-- Se genera automáticamente un ID.
-- Guarda la tarea en almacenamiento local.
+   ```bash
+   npm install
+   npx create-expo-app todoApp
+   cd todoApp
+   npm install @react-navigation/native
+   npm install @react-navigation/native-stack
+   npm install @react-native-async-storage/async-storage
+   npx expo install react-native-screens react-native-safe-area-context
+   ```
 
----
+2. Start the app
 
-### Pantalla Detail
-- Muestra el detalle de una tarea seleccionada.
-- Permite visualizar el título y estado.
-- Permite cambiar el estado de la tarea.
-- Guarda los cambios en el almacenamiento.
+   ```bash
+   npx expo start
+   npm start
+   ```
 
----
+   Estructura recomendada
+   /todoApp
+ ├── App.js
+ ├── /src
+ │    ├── /screens
+ │    │     ├── HomeScreen.js
+ │    │     ├── AddTaskScreen.js
+ │    │     └── DetailScreen.js
+ │    ├── /components
+ │    │     ├── TaskItem.js
+ │    │     └── CustomButton.js
+ │    ├── /storage
+ │    │     └── taskStorage.js
 
-## 3. Explicación de componentes reutilizables
+In the output, you'll find options to open the app in a
 
-### Componente TaskItem
-- Se utiliza para mostrar cada tarea en la lista.
-- Recibe props desde el componente principal (Home).
-- Props utilizados:
-  - `task`: contiene los datos de la tarea.
-  - `onPress`: función para navegar al detalle.
-  - `onDelete`: función para eliminar la tarea.
+- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-Este componente permite reutilizar código y mantener una estructura organizada.
+You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
----
+## Get a fresh project
 
-## 4. Explicación de persistencia
+When you're ready, run:
 
-La aplicación utiliza AsyncStorage para almacenar los datos de las tareas de forma local en el dispositivo.
+```bash
+npm run reset-project
+```
 
-Funciones utilizadas:
-- `getTasks()`: obtiene las tareas almacenadas.
-- `saveTasks()`: guarda la lista actualizada de tareas.
+This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-Esto permite que los datos se mantengan incluso después de cerrar la aplicación.
+## Learn more
 
----
+To learn more about developing your project with Expo, look at the following resources:
 
-## 5. Flujo de navegación
+- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
+- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-La navegación se implementa utilizando Expo Router.
+## Join the community
 
-Flujo:
-1. El usuario inicia en la pantalla Home.
-2. Puede:
-   - Ver tareas
-   - Eliminar tareas
-   - Ir a agregar nueva tarea (Add)
-3. Desde Home puede seleccionar una tarea:
-   - Navega a Detail
-4. En Detail:
-   - Puede cambiar el estado
-   - Regresar a Home
+Join our community of developers creating universal apps.
 
----
-
-## Tecnologías utilizadas
-
-- React Native
-- Expo Router
-- TypeScript
-- AsyncStorage
-
----
-
-# Hooks utilizados
-
-- `useState`: manejo de estados
-- `useEffect`: carga inicial de datos
-- `useFocusEffect`: actualización al cambiar de pantalla
-
-
+- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
+- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.

@@ -8,13 +8,34 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 
    ```bash
    npm install
+   npx create-expo-app todoApp
+   cd todoApp
+   npm install @react-navigation/native
+   npm install @react-navigation/native-stack
+   npm install @react-native-async-storage/async-storage
+   npx expo install react-native-screens react-native-safe-area-context
    ```
 
 2. Start the app
 
    ```bash
    npx expo start
+   npm start
    ```
+
+   Estructura recomendada
+   /todoApp
+ ├── App.js
+ ├── /src
+ │    ├── /screens
+ │    │     ├── HomeScreen.js
+ │    │     ├── AddTaskScreen.js
+ │    │     └── DetailScreen.js
+ │    ├── /components
+ │    │     ├── TaskItem.js
+ │    │     └── CustomButton.js
+ │    ├── /storage
+ │    │     └── taskStorage.js
 
 In the output, you'll find options to open the app in a
 
